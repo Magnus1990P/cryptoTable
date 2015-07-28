@@ -1,0 +1,67 @@
+body{
+	padding-top:			20px;
+	background-color:	#4D4A55;
+	font-family:			helvetica;
+	font-size:				12pt;
+}
+
+.inpText{
+	width:					100%;
+	display:				block;
+}
+
+.lbl-width{
+	min-width:			125px;
+}
+
+textarea{
+	min-height:			150px;
+	resize:					None;
+}
+
+.input-group{
+	margin-bottom:	5px;
+}
+
+.container{
+	margin-top:			10px;
+}
+
+#perm_table, #perm_table2 {
+	width:					100%;
+	text-align:			center;
+	font-size:			10pt;
+	font-family:		courier;
+	background:			#F0F0F0;
+	border-radius:	7px;
+	box-shadow:			3px 3px 10px #000;
+}
+
+td{
+	font-weight:		bold;
+}
+
+.sel-row, .sel-col{
+	font-family:		helvetica;
+}
+
+.sel-col{
+	background-color:	#FFA735;
+}
+.sel-row{
+	background-color:	#BAE272;
+}
+.sel-cor{
+	font-size:				100%;
+	font-weight:			bolder;
+	background-color:	#FF4477;
+}
+
+#msgbox div{
+	text-align:				center;
+}
+
+.sub{
+	font-size:				50%;
+	font-family:			helvetica;
+}
