@@ -11,6 +11,13 @@ body{
 	font-size:			14px;
 	line-height:		1.4;
 	min-height:		100vh;
+	text-align:		center;
+}
+
+/* Center all containers */
+.container {
+	margin:			0 auto;
+	text-align:		center;
 }
 
 /* Scan line effect overlay */
@@ -77,15 +84,12 @@ body::before {
 .algorithm-output {
 	text-align:		center;
 	padding:			15px;
-	margin-top:		15px;
-	margin-bottom:	15px;
+	margin:			15px auto;
 	background-color:	#000000;
 	border:			1px solid #00ff00;
 	height:			140px;
 	width:				100%;
 	max-width:		800px;
-	margin-left:		auto;
-	margin-right:		auto;
 	overflow-y:		auto;
 	color:				#00ff00;
 	font-family:	'Courier New', monospace;
@@ -94,6 +98,7 @@ body::before {
 	white-space:	pre-wrap;
 	word-wrap:		break-word;
 	max-font-size:	14px;
+	box-sizing:		border-box;
 }
 
 .algorithm-output h4 {
@@ -353,7 +358,7 @@ textarea.form-control {
 	width:				800px;
 	max-width:	100%;
 	height:			800px;
-	margin-top:	10px;
+	margin:			10px auto 0;
 	border-radius:	5px;
 	border:			2px solid #00ff00;
 	box-shadow:		0 0 20px rgba(0, 255, 0, 0.3);
