@@ -66,6 +66,15 @@ function wMsgBox( mainH, subH, msg ){
 		$("#msgbox div").append("<h3>" + subH		+ "</h3>");
 	if( msg		!= null )									//append simple text if provided
 		$("#msgbox div").append( msg );
+	
+	// Also update the header algorithm output area
+	$("#algorithmOutput").empty();
+	if( mainH != null )
+		$("#algorithmOutput").append("<h4>" + mainH + "</h4>");
+	if( subH != null )
+		$("#algorithmOutput").append("<h3>" + subH + "</h3>");
+	if( msg != null )
+		$("#algorithmOutput").append(msg);
 }
 
 //Sets highlighting of a whole row, whole column or specific cell in the table
@@ -120,6 +129,7 @@ function checkStop( enc ){
 		
 		$("#resText").html( string );					//Output the string to the GUI
 		$("#msgbox").fadeOut(500);						//Fades out the message box
+		$("#algorithmOutput").fadeOut(500);			//Fades out the algorithm output
 		$("#resText").slideDown( 500 );				//Animate the message 
 		return true;													//Return true since at end of string
 	}
@@ -132,6 +142,7 @@ function startingState( FIELD ){
 		$( FIELD ).val("");						//Blank out the text of the specified field
 		updateData();									//Update the global data values
 		$("#msgbox").fadeIn(500);			//Show the hidden messagebox
+		$("#algorithmOutput").fadeIn(500);			//Show the algorithm output
 																	//Based on encryption or decryption is run
 		if( FIELD == "#ctext")				//Disable decryption buttons
 			$("#decryptRun,#decryptStep").prop("disabled", true);
@@ -160,7 +171,7 @@ function updateField( F, S ){
 
 
 //ACTIONS PERFORMED AT LOAD
-$("#resText, #msgbox").hide();			//Hide two elements from view
+$("#resText, #msgbox, #algorithmOutput").hide();			//Hide elements from view
 popTable();													//Populate the permuted alphabet table
 
 
@@ -197,6 +208,7 @@ $("#decryptRun").on("click", function(){
 $("#reset").on("click", function(){
 	$("#resText").slideUp( 500 );					//Hide the previous result text
 	$("#msgbox").fadeOut(300);						//Fade out the msg box 
+	$("#algorithmOutput").fadeOut(300);				//Fade out the algorithm output
 	$("button").prop("disabled", false);	//Sett all buttons to be accessible
 	key = ""; msg = ""; cip = "";					//Reset global text values
 	MSGIN = 0; KEYIN = 0;									//Reset indexes for strings
@@ -205,4 +217,9 @@ $("#reset").on("click", function(){
 		clearInterval( GLOBTIMER );					//Stop animation
 		GLOBTIMER = null;										//Reset variable
 	}
+});
+
+//Help modal toggle
+$("#helpToggle").on("click", function(){
+	$("#helpModal").modal("toggle");
 });

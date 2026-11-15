@@ -11,24 +11,47 @@
 <body>
 <div class="container col-xs-offset-1 col-xs-10">
 	<div class="well">
-		<h2>The Vigèner Cipher - Encryption/Decryption
+		<h2>
+			The Vigèner Cipher - Encryption/Decryption
 			<small><a href="./beaufort.html"><u>Try Beaufort</u></a></small>
+			<button id="helpToggle" class="btn btn-xs btn-info" style="margin-left: 10px;">
+				<span class="glyphicon glyphicon-question-sign"></span> Help
+			</button>
 		</h2>
-		L - The length of the available alphabet. For english alphabet using a-z it
-		will be 26, since it is 26 letters in the alphabet.<br />
-		m&isin;M - Your selected plaintext is a message(m) which is an element of
-		the entire message space(M) <br />
-		k&isin;K - Your selected keyword is a key(k) which is an element of the
-		entire key space(k) <br />
-		c&isin;C - The resulting ciphertext(c) which is an element of the entire
-		ciphertext space <br /><br />
-		m<font class="sub">n</font> - The n-th letter of the current plaintext
-		message.  The current plaintext letter being encrypted.<br/>
-		k<font class="sub">n</font> - The n-th letter of the current keyword, this
-		a modulo operated value which is relative to the keyword length. <br />
-		c<font class="sub">n</font> - The n-th letter of the current ciphertext. The
-		letter of the ciphertext that is being deciphered.
+		<div id="algorithmOutput" class="algorithm-output"></div>
 		<h2 id="resText"></h2>
+	</div>
+</div>
+
+<!-- Help Modal -->
+<div id="helpModal" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Algorithm Information</h4>
+			</div>
+			<div class="modal-body">
+				<p>L - The length of the available alphabet. For english alphabet using a-z it
+				will be 26, since it is 26 letters in the alphabet.</p>
+				<p>m&isin;M - Your selected plaintext is a message(m) which is an element of
+				the entire message space(M)</p>
+				<p>k&isin;K - Your selected keyword is a key(k) which is an element of the
+				entire key space(k)</p>
+				<p>c&isin;C - The resulting ciphertext(c) which is an element of the entire
+				ciphertext space</p>
+				<br />
+				<p>m<font class="sub">n</font> - The n-th letter of the current plaintext
+				message. The current plaintext letter being encrypted.</p>
+				<p>k<font class="sub">n</font> - The n-th letter of the current keyword, this
+				a modulo operated value which is relative to the keyword length.</p>
+				<p>c<font class="sub">n</font> - The n-th letter of the current ciphertext. The
+				letter of the ciphertext that is being deciphered.</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
 	</div>
 </div>
 
@@ -80,7 +103,7 @@
 		</table>
 	</div>
 
-	<div class="input-group col-xs-12" id="msgbox">
+	<div class="input-group col-xs-12" id="msgbox" style="display: none;">
 		<div class="well well-xs">
 		</div>
 	</div>
