@@ -230,6 +230,7 @@ body::before {
 	resize:				none;
 	width:				100%;
 	box-sizing:		border-box;
+	padding:			8px 12px;
 }
 
 .form-control:focus {
