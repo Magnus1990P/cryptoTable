@@ -56,18 +56,8 @@ function updateData(){
 	KEYIN	=  0;															//Reset the index of "key" to start
 }
 
-//Write a set of texts inside the message box "msgbox" and format based on which
-//text is sent as paramater
+//Write a set of texts inside the algorithm output area
 function wMsgBox( mainH, subH, msg ){
-	$("#msgbox div").empty();
-	if( mainH != null )									//append text to main header if provided
-		$("#msgbox div").append("<h4>" + mainH	+ "</h4>");
-	if( subH  != null )									//append text to sub header if provided
-		$("#msgbox div").append("<h3>" + subH		+ "</h3>");
-	if( msg		!= null )									//append simple text if provided
-		$("#msgbox div").append( msg );
-	
-	// Also update the header algorithm output area
 	$("#algorithmOutput").empty();
 	if( mainH != null )
 		$("#algorithmOutput").append("<h4>" + mainH + "</h4>");
@@ -128,7 +118,6 @@ function checkStop( enc ){
 			string = "Original Message: \"<b>" + $("#ptext").val() + "</b>\"";
 		
 		$("#resText").html( string );					//Output the string to the GUI
-		$("#msgbox").fadeOut(500);						//Fades out the message box
 		$("#algorithmOutput").fadeOut(500);			//Fades out the algorithm output
 		$("#resText").slideDown( 500 );				//Animate the message 
 		return true;													//Return true since at end of string
@@ -141,7 +130,6 @@ function startingState( FIELD ){
 	if( MSGIN==0 && KEYIN==0 && CLICK==1){//If message and key index are zero
 		$( FIELD ).val("");						//Blank out the text of the specified field
 		updateData();									//Update the global data values
-		$("#msgbox").fadeIn(500);			//Show the hidden messagebox
 		$("#algorithmOutput").fadeIn(500);			//Show the algorithm output
 																	//Based on encryption or decryption is run
 		if( FIELD == "#ctext")				//Disable decryption buttons
@@ -171,7 +159,7 @@ function updateField( F, S ){
 
 
 //ACTIONS PERFORMED AT LOAD
-$("#resText, #msgbox, #algorithmOutput").hide();			//Hide elements from view
+$("#resText, #algorithmOutput").hide();			//Hide elements from view
 popTable();													//Populate the permuted alphabet table
 
 
@@ -207,7 +195,6 @@ $("#decryptRun").on("click", function(){
 	//Clicking the reset button
 $("#reset").on("click", function(){
 	$("#resText").slideUp( 500 );					//Hide the previous result text
-	$("#msgbox").fadeOut(300);						//Fade out the msg box 
 	$("#algorithmOutput").fadeOut(300);				//Fade out the algorithm output
 	$("button").prop("disabled", false);	//Sett all buttons to be accessible
 	key = ""; msg = ""; cip = "";					//Reset global text values

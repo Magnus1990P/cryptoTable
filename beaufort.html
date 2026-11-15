@@ -15,13 +15,15 @@
 <body>
 <div class="container col-xs-offset-1 col-xs-10">
 	<div class="well">
-		<h2>
-			The Beaufort Cipher - Encryption/Decryption
-			<small><a href="./index.html"><u>Try Vigèner</u></a></small>
+		<div style="display: flex; justify-content: space-between; align-items: center;">
+			<h2 style="margin: 0;">
+				The Beaufort Cipher - Encryption/Decryption
+				<small><a href="./index.html"><u>Try Vigèner</u></a></small>
+			</h2>
 			<button id="helpToggle" class="btn btn-xs btn-info" style="margin-left: 10px;">
-				<span class="glyphicon glyphicon-question-sign"></span> Help
+				<span class="glyphicon glyphicon-question-sign"></span>
 			</button>
-		</h2>
+		</div>
 		<div id="algorithmOutput" class="algorithm-output"></div>
 		<h2 id="resText"></h2>
 	</div>
@@ -105,11 +107,6 @@
 	<div class="input-group col-xs-12">
 		<table id="perm_table">
 		</table>
-	</div>
-
-	<div class="input-group col-xs-12" id="msgbox" style="display: none;">
-		<div class="well well-xs">
-		</div>
 	</div>
 </div>
 
