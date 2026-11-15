@@ -130,8 +130,8 @@ body::before {
 	color:				#00ff00;
 	padding:			0;
 	font-size:		0;
-	width:				127px;
-	height:			127px;
+	width:				96px;
+	height:			96px;
 	cursor:			pointer;
 	outline:			none;
 	box-shadow:		none;
@@ -140,18 +140,18 @@ body::before {
 
 #helpToggle:hover {
 	color:				#00ff44;
-	text-shadow:	0 0 10px #00ff00;
 }
 
 #helpToggle .glyphicon-question-sign {
-	font-size:		127px;
-	line-height:	127px;
+	font-size:		96px;
+	line-height:	96px;
 	color:				#00ff00;
+	text-shadow:	none;
 }
 
 #helpToggle:hover .glyphicon-question-sign {
 	color:				#00ff44;
-	text-shadow:	0 0 10px #00ff00;
+	text-shadow:	none;
 }
 
 /* Help Modal - terminal style */
@@ -184,7 +184,6 @@ body::before {
 #helpModal .close {
 	color:				#000000;
 	font-size:		24px;
-	text-shadow:	0 0 5px #00ff00;
 }
 
 #helpModal .btn-default {
@@ -248,7 +247,6 @@ textarea.form-control {
 	padding:			8px 15px;
 	margin:			5px;
 	color:				#000000;
-	text-shadow:	1px 1px 0 #00ff00;
 	border:			1px solid #00ff00;
 	background-color:	#00ff00;
 	box-shadow:		0 0 10px rgba(0, 255, 0, 0.5);
