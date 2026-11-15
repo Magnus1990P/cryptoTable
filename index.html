@@ -74,62 +74,64 @@
 
 <!-- Main content area -->
 <div class="container col-xs-12" style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
-	<!-- Left column - Input/Output (max 300px) -->
-	<div style="flex: 0 0 300px; max-width: 300px; min-width: 300px;">
-		<div class="input-group">
-			<span class="input-group-addon">Key (k)</span>
-			<input class="form-control" id="kword" value="KEY" />
+	<div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; width: 100%;">
+		<!-- Left column - Input/Output (max 300px) -->
+		<div style="flex: 0 0 300px; max-width: 300px; min-width: 300px;">
+			<div class="input-group">
+				<span class="input-group-addon">Key (k)</span>
+				<input class="form-control" id="kword" value="KEY" />
+			</div>
+
+			<div class="input-group">
+				<span class="input-group-addon">Message (m)</span>
+				<textarea class="form-control" id="ptext">ENCRYPTION IS A VERY NICE THING</textarea>
+			</div>
+			
+			<div style="display: flex; gap: 5px; margin-bottom: 10px;">
+				<button class="btn btn-primary" id="encryptStep" style="flex: 1; width: 50%;">
+					Step Encipher
+				</button>
+				<button class="btn btn-success" id="encryptRun" style="flex: 1; width: 50%;">
+					Auto Encipher
+				</button>
+			</div>
+
+			<div class="input-group">
+				<span class="input-group-addon">Cipher (c)</span>
+				<textarea class="form-control" id="ctext">ORABCNDMMX MQ K ZCBC LSGC DLGXK</textarea>
+			</div>
+
+			<div style="display: flex; gap: 5px; margin-bottom: 10px;">
+				<button class="btn btn-warning" id="decryptStep" style="flex: 1; width: 50%;">
+					Step Decipher
+				</button>
+				<button class="btn btn-danger" id="decryptRun" style="flex: 1; width: 50%;">
+					Auto Decipher
+				</button>
+			</div>
+			
+			<div style="display: flex; gap: 5px; margin-bottom: 15px;">
+				<button class="btn btn-info" id="encryptAll" style="flex: 1; width: 50%;">
+					Encrypt All
+				</button>
+				<button class="btn btn-info" id="decryptAll" style="flex: 1; width: 50%;">
+					Decrypt All
+				</button>
+			</div>
+			
+			<div class="input-group col-xs-12">
+				<button class="btn btn-block btn-lg btn-default" id="reset">
+					Reset
+				</button>
+			</div>
 		</div>
 
-		<div class="input-group">
-			<span class="input-group-addon">Message (m)</span>
-			<textarea class="form-control" id="ptext">ENCRYPTION IS A VERY NICE THING</textarea>
-		</div>
-		
-		<div style="display: flex; gap: 5px; margin-bottom: 10px;">
-			<button class="btn btn-primary" id="encryptStep" style="flex: 1; width: 50%;">
-				Step Encipher
-			</button>
-			<button class="btn btn-success" id="encryptRun" style="flex: 1; width: 50%;">
-				Auto Encipher
-			</button>
-		</div>
-
-		<div class="input-group">
-			<span class="input-group-addon">Cipher (c)</span>
-			<textarea class="form-control" id="ctext">ORABCNDMMX MQ K ZCBC LSGC DLGXK</textarea>
-		</div>
-
-		<div style="display: flex; gap: 5px; margin-bottom: 10px;">
-			<button class="btn btn-warning" id="decryptStep" style="flex: 1; width: 50%;">
-				Step Decipher
-			</button>
-			<button class="btn btn-danger" id="decryptRun" style="flex: 1; width: 50%;">
-				Auto Decipher
-			</button>
-		</div>
-		
-		<div style="display: flex; gap: 5px; margin-bottom: 15px;">
-			<button class="btn btn-info" id="encryptAll" style="flex: 1; width: 50%;">
-				Encrypt All
-			</button>
-			<button class="btn btn-info" id="decryptAll" style="flex: 1; width: 50%;">
-				Decrypt All
-			</button>
-		</div>
-		
-		<div class="input-group col-xs-12">
-			<button class="btn btn-block btn-lg btn-default" id="reset">
-				Reset
-			</button>
-		</div>
-	</div>
-
-	<!-- Right column - Alphabet Table -->
-	<div style="flex: 1; min-width: 500px;">
-		<div class="table-container">
-			<table id="perm_table">
-			</table>
+		<!-- Right column - Alphabet Table -->
+		<div style="flex: 0 0 800px; max-width: 800px; min-width: 500px;">
+			<div class="table-container">
+				<table id="perm_table">
+				</table>
+			</div>
 		</div>
 	</div>
 </div>
