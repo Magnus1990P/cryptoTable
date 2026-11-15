@@ -20,6 +20,7 @@ KEYIN	= 0;														//Index of character in keyword
 ROW		= -1;														//Index of row to highlight in table
 COL		= -1;														//Index of column to highlight in table
 SPEED = 100;													//Perform anim step every SPEEDms
+currentLanguage = 'en';													//Perform anim step every SPEEDms
 
 /**
 	* Populates the table of all shift permutations of the alphabet.
@@ -160,6 +161,7 @@ function updateField( F, S ){
 function encryptAll() {
 	updateData();
 	var result = "";
+	var trans = translations[currentLanguage] || translations.en;
 	for (var i = 0; i < msg.length; i++) {
 		var c = msg[i];
 		var msgIndex = alphabet.indexOf(c);
@@ -174,7 +176,7 @@ function encryptAll() {
 		if (++KEYIN >= key.length) KEYIN = 0;
 	}
 	$("#ctext").val(result);
-	$("#resText").html("Encrypted text: \"<b>" + result + "</b>\"");
+	$("#resText").html(trans.encryptedText + "\"<b>" + result + "</b>\"");
 	$("#resText").slideDown(500);
 }
 
@@ -182,6 +184,7 @@ function encryptAll() {
 function decryptAll() {
 	updateData();
 	var result = "";
+	var trans = translations[currentLanguage] || translations.en;
 	for (var i = 0; i < cip.length; i++) {
 		var c = cip[i];
 		var cipIndex = alphabet.indexOf(c);
@@ -196,14 +199,70 @@ function decryptAll() {
 		if (++KEYIN >= key.length) KEYIN = 0;
 	}
 	$("#ptext").val(result);
-	$("#resText").html("Decrypted text: \"<b>" + result + "</b>\"");
+	$("#resText").html(trans.decryptedText + "\"<b>" + result + "</b>\"");
 	$("#resText").slideDown(500);
 }
 
 
+// Update all UI text based on language
+function updateLanguage(lang) {
+	currentLanguage = lang || 'en';
+	var trans = translations[lang] || translations.en;
+	
+	// Update header based on current page
+	if (window.location.pathname.includes('beaufort')) {
+		$('#pageTitle').html(trans.titleBeaufort + '<small style="display: block; font-size: 12px; margin-top: 5px;"><a href="./index.html" style="color: #00ff00;"><u>' + trans.tryVigenere + '</u></a></small>');
+	} else {
+		$('#pageTitle').html(trans.titleVigenere + '<small style="display: block; font-size: 12px; margin-top: 5px;"><a href="./beaufort.html" style="color: #00ff00;"><u>' + trans.tryBeaufort + '</u></a></small>');
+	}
+	
+	// Update labels
+	$('.input-group-addon').each(function() {
+		var text = $(this).text().trim();
+		if (text.includes('Key') || text.includes('Nøkkel')) {
+			$(this).text(trans.keyLabel);
+		} else if (text.includes('Message') || text.includes('Melding')) {
+			$(this).text(trans.messageLabel);
+		} else if (text.includes('Cipher') || text.includes('Kryptert')) {
+			$(this).text(trans.cipherLabel);
+		}
+	});
+	
+	// Update buttons
+	$('#encryptStep').text(trans.stepEncipher);
+	$('#encryptRun').text(trans.automaticEnciphering);
+	$('#decryptStep').text(trans.stepDecipher);
+	$('#decryptRun').text(trans.automaticDecipherment);
+	$('#encryptAll').text(trans.encryptAll);
+	$('#decryptAll').text(trans.decryptAll);
+	$('#reset').text(trans.reset);
+	
+	// Update help modal
+	$('#helpModal .modal-title').text(trans.helpTitle);
+	$('#helpModal .modal-body').html(trans.helpDescription);
+	$('#helpModal .btn-default').text(trans.close);
+	
+	// Update language selector
+	$('#languageSelect').val(lang);
+	
+	// Save to localStorage
+	localStorage.setItem('cryptoTableLang', lang);
+}
+
 //ACTIONS PERFORMED AT LOAD
 $("#resText, #algorithmOutput").hide();			//Hide elements from view
 popTable();													//Populate the permuted alphabet table
+
+// Load saved language or default to English
+var savedLang = localStorage.getItem('cryptoTableLang') || 'en';
+currentLanguage = savedLang;
+updateLanguage(savedLang);
+
+// Language selector handler
+$("#languageSelect").on("change", function() {
+	currentLanguage = $(this).val();
+	updateLanguage(currentLanguage);
+});
 
 
 //USER INTERACTION FUNCTIONALITY
