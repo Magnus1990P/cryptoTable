@@ -224,11 +224,12 @@ body::before {
 .form-control {
 	background-color:	#000000;
 	border:			1px solid #00ff00;
-	border-left:		none;
 	color:				#00ff00;
 	font-family:	'Courier New', monospace;
 	font-size:		14px;
 	resize:				none;
+	width:				100%;
+	box-sizing:		border-box;
 }
 
 .form-control:focus {

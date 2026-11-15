@@ -81,13 +81,14 @@
 	<div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; width: 100%;">
 		<!-- Left column - Input/Output (max 300px) -->
 		<div style="flex: 0 0 300px; max-width: 300px; min-width: 300px;">
-			<div class="input-group">
-				<span class="input-group-addon">Key (k)</span>
+			<div style="text-align: left; margin-bottom: 15px;">
+				<label for="kword" style="display: block; color: #00ff00; font-family: 'Courier New', monospace; font-size: 14px; margin-bottom: 5px;">Key (k)</label>
 				<input class="form-control" id="kword" value="KEY" />
 			</div>
-
-			<div class="input-group">
-				<span class="input-group-addon">Message (m)</span>
+			<hr style="border-color: #004400; margin: 15px 0;" />
+			
+			<div style="text-align: left; margin-bottom: 15px;">
+				<label for="ptext" style="display: block; color: #00ff00; font-family: 'Courier New', monospace; font-size: 14px; margin-bottom: 5px;">Message (m)</label>
 				<textarea class="form-control" id="ptext">ENCRYPTION IS A VERY NICE THING</textarea>
 			</div>
 			
@@ -99,12 +100,13 @@
 					Auto Encipher
 				</button>
 			</div>
-
-			<div class="input-group">
-				<span class="input-group-addon">Cipher (c)</span>
+			<hr style="border-color: #004400; margin: 15px 0;" />
+			
+			<div style="text-align: left; margin-bottom: 15px;">
+				<label for="ctext" style="display: block; color: #00ff00; font-family: 'Courier New', monospace; font-size: 14px; margin-bottom: 5px;">Cipher (c)</label>
 				<textarea class="form-control" id="ctext">GRWTGJRWKX WG K JUTG LCCU RXQXY</textarea>
 			</div>
-
+			
 			<div style="display: flex; gap: 5px; margin-bottom: 10px;">
 				<button class="btn btn-warning" id="decryptStep" style="flex: 1; width: 50%;">
 					Step Decipher
@@ -123,7 +125,7 @@
 				</button>
 			</div>
 			
-			<div class="input-group col-xs-12">
+			<div style="margin-bottom: 10px;">
 				<button class="btn btn-block btn-lg btn-default" id="reset">
 					Reset
 				</button>
