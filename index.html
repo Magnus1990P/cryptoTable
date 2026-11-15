@@ -74,8 +74,8 @@
 
 <!-- Main content area -->
 <div class="container col-xs-12" style="display: flex; flex-wrap: wrap; gap: 15px;">
-	<!-- Left column - Input/Output (1/3 width) -->
-	<div style="flex: 1; min-width: 300px; max-width: 33.333%;">
+	<!-- Left column - Input/Output (max 300px) -->
+	<div style="flex: 0 0 300px; max-width: 300px; min-width: 300px;">
 		<div class="input-group">
 			<span class="input-group-addon">Key (k)</span>
 			<input class="form-control" id="kword" value="KEY" />
@@ -87,11 +87,11 @@
 		</div>
 		
 		<div style="display: flex; gap: 5px; margin-bottom: 10px;">
-			<button class="btn btn-primary" id="encryptStep" style="flex: 1;">
+			<button class="btn btn-primary" id="encryptStep" style="flex: 1; width: 50%;">
 				Step Encipher
 			</button>
-			<button class="btn btn-success" id="encryptRun" style="flex: 1;">
-				Automatic Enciphering
+			<button class="btn btn-success" id="encryptRun" style="flex: 1; width: 50%;">
+				Auto Encipher
 			</button>
 		</div>
 
@@ -101,19 +101,19 @@
 		</div>
 
 		<div style="display: flex; gap: 5px; margin-bottom: 10px;">
-			<button class="btn btn-warning" id="decryptStep" style="flex: 1;">
+			<button class="btn btn-warning" id="decryptStep" style="flex: 1; width: 50%;">
 				Step Decipher
 			</button>
-			<button class="btn btn-danger" id="decryptRun" style="flex: 1;">
-				Automatic Decipherment
+			<button class="btn btn-danger" id="decryptRun" style="flex: 1; width: 50%;">
+				Auto Decipher
 			</button>
 		</div>
 		
 		<div style="display: flex; gap: 5px; margin-bottom: 15px;">
-			<button class="btn btn-info" id="encryptAll" style="flex: 1;">
+			<button class="btn btn-info" id="encryptAll" style="flex: 1; width: 50%;">
 				Encrypt All
 			</button>
-			<button class="btn btn-info" id="decryptAll" style="flex: 1;">
+			<button class="btn btn-info" id="decryptAll" style="flex: 1; width: 50%;">
 				Decrypt All
 			</button>
 		</div>
@@ -125,8 +125,8 @@
 		</div>
 	</div>
 
-	<!-- Right column - Alphabet Table (2/3 width) -->
-	<div style="flex: 2; min-width: 300px; max-width: 66.666%;">
+	<!-- Right column - Alphabet Table -->
+	<div style="flex: 1; min-width: 500px;">
 		<div class="table-container">
 			<table id="perm_table">
 			</table>

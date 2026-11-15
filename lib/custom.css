@@ -211,8 +211,9 @@ body::before {
 	border-right:	none;
 	color:				#00ff00;
 	font-family:	'Courier New', monospace;
-	font-size:		16px;
-	min-width:		100px;
+	font-size:		14px;
+	min-width:		80px;
+	width:			80px;
 }
 
 .form-control {
@@ -221,7 +222,7 @@ body::before {
 	border-left:		none;
 	color:				#00ff00;
 	font-family:	'Courier New', monospace;
-	font-size:		16px;
+	font-size:		14px;
 	resize:				none;
 }
 
@@ -241,16 +242,20 @@ textarea.form-control {
 /* Button styling */
 .btn {
 	font-family:	'Courier New', monospace;
-	font-size:		16px;
+	font-size:		12px;
 	font-weight:	bold;
 	border-radius:	3px;
-	padding:			10px 20px;
-	margin:			5px;
+	padding:			8px 12px;
+	margin:			2px;
 	color:				#000000;
 	border:			1px solid #00ff00;
 	background-color:	#00ff00;
 	box-shadow:		0 0 10px rgba(0, 255, 0, 0.5);
 	transition:		all 0.2s ease;
+	text-transform:	uppercase;
+	letter-spacing:	0.5px;
+	white-space:	nowrap;
+	overflow:		hidden;
 }
 
 .btn:hover {
