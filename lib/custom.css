@@ -345,21 +345,19 @@ textarea.form-control {
 
 /* Alphabet permutation table - LARGER */
 .table-container {
-	width:				100%;
-	padding-top:	100%;
-	position:		relative;
+	width:				800px;
+	max-width:	100%;
+	height:			800px;
 	margin-top:	10px;
 	border-radius:	5px;
 	border:			2px solid #00ff00;
 	box-shadow:		0 0 20px rgba(0, 255, 0, 0.3);
 	background:		#000000;
-	overflow:		hidden;
+	overflow:		auto;
+	position:		relative;
 }
 
 .table-container table {
-	position:		absolute;
-	top:				0;
-	left:			0;
 	width:				100%;
 	height:			100%;
 	text-align:		center;
@@ -382,6 +380,7 @@ textarea.form-control {
 	padding:			0;
 	width:				calc(100% / 26);
 	height:			calc(100% / 26);
+	min-height:	calc(100% / 26);
 	font-size:		14px;
 	border:			1px solid #003300;
 	text-align:		center;
