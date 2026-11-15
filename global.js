@@ -156,6 +156,49 @@ function updateField( F, S ){
 	$( F ).val( $( F ).val( ) + S );	//Appends content of TXT to the field FLD
 }
 
+//Encrypt all text at once without animation
+function encryptAll() {
+	updateData();
+	var result = "";
+	for (var i = 0; i < msg.length; i++) {
+		var c = msg[i];
+		var msgIndex = alphabet.indexOf(c);
+		if (msgIndex === -1) {
+			result += c;
+			continue;
+		}
+		var keyIndex = KEYIN % key.length;
+		var colIndex = alphabet.indexOf(key[keyIndex]);
+		var cipherIndex = (msgIndex + colIndex) % alphabet.length;
+		result += alphabet[cipherIndex];
+		if (++KEYIN >= key.length) KEYIN = 0;
+	}
+	$("#ctext").val(result);
+	$("#resText").html("Encrypted text: \"<b>" + result + "</b>\"");
+	$("#resText").slideDown(500);
+}
+
+//Decrypt all text at once without animation
+function decryptAll() {
+	updateData();
+	var result = "";
+	for (var i = 0; i < cip.length; i++) {
+		var c = cip[i];
+		var cipIndex = alphabet.indexOf(c);
+		if (cipIndex === -1) {
+			result += c;
+			continue;
+		}
+		var keyIndex = KEYIN % key.length;
+		var colIndex = alphabet.indexOf(key[keyIndex]);
+		var msgIndex = (cipIndex - colIndex + alphabet.length) % alphabet.length;
+		result += alphabet[msgIndex];
+		if (++KEYIN >= key.length) KEYIN = 0;
+	}
+	$("#ptext").val(result);
+	$("#resText").html("Decrypted text: \"<b>" + result + "</b>\"");
+	$("#resText").slideDown(500);
+}
 
 
 //ACTIONS PERFORMED AT LOAD
@@ -190,6 +233,16 @@ $("#decryptStep").on("click", function(){
 	//Clicking the automate decryption button starts or stops the animation.
 $("#decryptRun").on("click", function(){ 
 	switchAnimator("#decryptStep", SPEED);		//Animate each xms
+});
+
+	//Clicking the encrypt all button
+$("#encryptAll").on("click", function(){
+	encryptAll();
+});
+
+	//Clicking the decrypt all button
+$("#decryptAll").on("click", function(){
+	decryptAll();
 });
 
 	//Clicking the reset button
