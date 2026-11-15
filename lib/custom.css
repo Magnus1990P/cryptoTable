@@ -1,100 +1,442 @@
+/* Terminal / Hackers Movie Style Theme */
+
 body{
 	padding-top:			20px;
-	background-color:	#4D4A55;
-	font-family:			helvetica;
-	font-size:				12pt;
+	background-color:	#0a0a0a;
+	background-image:		linear-gradient(rgba(0, 255, 0, 0.03) 1px, transparent 1px),
+							linear-gradient(90deg, rgba(0, 255, 0, 0.03) 1px, transparent 1px);
+	background-size:	20px 20px;
+	color:				#00ff00;
+	font-family:		'Courier New', monospace;
+	font-size:			14px;
+	line-height:		1.4;
+	min-height:		100vh;
 }
 
-.inpText{
-	width:					100%;
-	display:				block;
+/* Scan line effect overlay */
+body::before {
+	content: "";
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: linear-gradient(
+		to bottom,
+		ransparant 50%,
+		rgba(0, 0, 0, 0.2) 51%
+	);
+	background-size: 100% 4px;
+	pointer-events: none;
+	z-index: 9999;
+	opacity: 0.3;
 }
 
-.lbl-width{
-	min-width:			125px;
+/* Main container styling */
+.container {
+	margin-top:		10px;
+	background-color:	rgba(0, 0, 0, 0.7);
+	border:			1px solid #00ff00;
+	border-radius:	5px;
+	box-shadow:		0 0 20px rgba(0, 255, 0, 0.3);
 }
 
-textarea{
-	min-height:			150px;
-	resize:					None;
+/* Well styling - header area */
+.well {
+	background-color:	rgba(0, 0, 0, 0.5);
+	border:			1px solid #00ff00;
+	border-radius:	5px;
+	color:				#00ff00;
+	margin-bottom:	20px;
+	padding:			15px;
 }
 
-.input-group{
-	margin-bottom:	5px;
+/* Header styling */
+.well h2 {
+	color:				#00ff00;
+	font-family:	'Courier New', monospace;
+	margin:			0;
+	padding:		0;
 }
 
-.container{
-	margin-top:			10px;
+.well h2 small {
+	color:				#00aa00;
+	font-size:		14px;
 }
 
-#perm_table, #perm_table2 {
-	width:					100%;
-	text-align:			center;
-	font-size:			10pt;
-	font-family:		courier;
-	background:			#F0F0F0;
-	border-radius:	7px;
-	box-shadow:			3px 3px 10px #000;
+.well h2 a {
+	color:				#00ff00;
+	text-decoration:	underline;
 }
 
-td{
-	font-weight:		bold;
+.well h2 a:hover {
+	color:				#00ff44;
 }
 
-.sel-row, .sel-col{
-	font-family:		helvetica;
+/* Algorithm output - terminal style */
+.algorithm-output {
+	text-align:		center;
+	padding:			15px;
+	margin-top:		15px;
+	margin-bottom:	15px;
+	background-color:	#000000;
+	border:			1px solid #00ff00;
+	height:			140px;
+	width:				100%;
+	max-width:		800px;
+	margin-left:		auto;
+	margin-right:		auto;
+	overflow-y:		auto;
+	color:				#00ff00;
+	font-family:	'Courier New', monospace;
+	font-size:		14px;
+	line-height:	1.5;
+	white-space:	pre-wrap;
+	word-wrap:		break-word;
+	max-font-size:	14px;
 }
 
-.sel-col{
-	background-color:	#FFA735;
-}
-.sel-row{
-	background-color:	#BAE272;
-}
-.sel-cor{
-	font-size:				100%;
-	font-weight:			bolder;
-	background-color:	#FF4477;
+.algorithm-output h4 {
+	color:				#00ff00;
+	margin:			5px 0;
+	font-size:		14px;
+	font-weight:	bold;
 }
 
-#msgbox div{
-	text-align:				center;
+.algorithm-output h3 {
+	color:				#00ff88;
+	margin:			5px 0;
+	font-size:		13px;
 }
 
-.algorithm-output{
-	text-align:				center;
-	padding:				10px;
-	margin-top:			10px;
-	margin-bottom:		10px;
-	background-color:	#f8f9fa;
-	border-radius:		5px;
-	border:				1px solid #ddd;
-	height:				120px;
-	width:					100%;
-	max-width:			800px;
-	margin-left:			auto;
-	margin-right:			auto;
-	overflow-y:			auto;
+.algorithm-output p {
+	margin:			2px 0;
+	font-size:		13px;
 }
 
-.sub{
-	font-size:				50%;
-	font-family:			helvetica;
+/* Result text styling */
+#resText {
+	color:				#00ff00;
+	font-family:	'Courier New', monospace;
+	font-size:		16px;
+	margin-top:	10px;
+	text-align:		center;
 }
 
+/* Help button styling */
 #helpToggle {
+	background-color:	#000000;
+	border:			1px solid #00ff00;
+	color:				#00ff00;
 	padding:			5px 10px;
-	font-size:			12px;
-	min-width:			30px;
-	height:				30px;
+	font-size:		12px;
+	min-width:		30px;
+	height:			30px;
+	cursor:			pointer;
+	font-family:	'Courier New', monospace;
 }
 
+#helpToggle:hover {
+	background-color:	rgba(0, 255, 0, 0.2);
+	color:				#000000;
+}
+
+/* Help Modal - terminal style */
 #helpModal .modal-content {
-	background-color:	#f8f9fa;
-	color:				#333;
+	background-color:	#000000;
+	border:			2px solid #00ff00;
+	color:				#00ff00;
+	font-family:	'Courier New', monospace;
 }
 
 #helpModal .modal-header {
-	background-color:	#d9edf7;
-	border-bottom:		1px solid #bce8f1;
+	background-color:	rgba(0, 0, 0, 0.8);
+	border-bottom:	1px solid #00ff00;
+	color:				#00ff00;
+	font-family:	'Courier New', monospace;
+}
+
+#helpModal .modal-body {
+	color:				#00ff00;
+	font-family:	'Courier New', monospace;
+	font-size:		14px;
+	line-height:	1.6;
+}
+
+#helpModal .modal-footer {
+	border-top:		1px solid #00ff00;
+	background-color:	rgba(0, 0, 0, 0.8);
+}
+
+#helpModal .close {
+	color:				#00ff00;
+	font-size:		24px;
+}
+
+#helpModal .btn-default {
+	background-color:	#000000;
+	border:			1px solid #00ff00;
+	color:				#00ff00;
+}
+
+#helpModal .btn-default:hover {
+	background-color:	rgba(0, 255, 0, 0.2);
+	color:				#000000;
+}
+
+/* Input group styling */
+.input-group {
+	margin-bottom:	15px;
+	background-color:	#000000;
+	border:			1px solid #004400;
+	border-radius:	3px;
+}
+
+.input-group-addon {
+	background-color:	#000000;
+	border:			1px solid #00ff00;
+	border-right:	none;
+	color:				#00ff00;
+	font-family:	'Courier New', monospace;
+	font-size:		14px;
+	min-width:		100px;
+}
+
+.form-control {
+	background-color:	#000000;
+	border:			1px solid #00ff00;
+	border-left:		none;
+	color:				#00ff00;
+	font-family:	'Courier New', monospace;
+	font-size:		14px;
+	resize:				none;
+}
+
+.form-control:focus {
+	background-color:	#001100;
+	border-color:	#00ff00;
+	color:				#00ff00;
+	box-shadow:		0 0 10px rgba(0, 255, 0, 0.5);
+	outline:			none;
+}
+
+textarea.form-control {
+	min-height:		100px;
+	font-family:	'Courier New', monospace;
+}
+
+/* Button styling */
+.btn {
+	font-family:	'Courier New', monospace;
+	font-size:		14px;
+	font-weight:	bold;
+	border-radius:	3px;
+	padding:			8px 15px;
+	margin:			5px;
+	color:				#000000;
+	text-shadow:	1px 1px 0 #00ff00;
+	border:			1px solid #00ff00;
+	background-color:	#00ff00;
+	box-shadow:		0 0 10px rgba(0, 255, 0, 0.5);
+	transition:		all 0.2s ease;
+}
+
+.btn:hover {
+	background-color:	#00ff44;
+	color:				#000000;
+	box-shadow:		0 0 15px rgba(0, 255, 0, 0.7);
+	border-color:	#00ff00;
+}
+
+.btn:active {
+	background-color:	#00aa00;
+	box-shadow:		0 0 5px rgba(0, 255, 0, 0.3);
+}
+
+.btn:disabled {
+	background-color:	#004400;
+	color:				#008800;
+	box-shadow:		none;
+	border-color:	#004400;
+}
+
+.btn-primary {
+	background-color:	#00aaff;
+	color:				#000000;
+	border-color:	#00ffff;
+}
+
+.btn-primary:hover {
+	background-color:	#00ccff;
+	box-shadow:		0 0 15px rgba(0, 170, 255, 0.7);
+}
+
+.btn-success {
+	background-color:	#00ff00;
+	color:				#000000;
+	border-color:	#00ff88;
+}
+
+.btn-success:hover {
+	background-color:	#00ff44;
+	box-shadow:		0 0 15px rgba(0, 255, 0, 0.7);
+}
+
+.btn-warning {
+	background-color:	#ffaa00;
+	color:				#000000;
+	border-color:	#ffcc00;
+}
+
+.btn-warning:hover {
+	background-color:	#ffcc00;
+	box-shadow:		0 0 15px rgba(255, 170, 0, 0.7);
+}
+
+.btn-danger {
+	background-color:	#ff0000;
+	color:				#000000;
+	border-color:	#ff4444;
+}
+
+.btn-danger:hover {
+	background-color:	#ff4444;
+	box-shadow:		0 0 15px rgba(255, 0, 0, 0.7);
+}
+
+.btn-default {
+	background-color:	#444444;
+	color:				#00ff00;
+	border-color:	#00ff00;
+}
+
+.btn-default:hover {
+	background-color:	#666666;
+	color:				#00ff00;
+	box-shadow:		0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.btn-xs {
+	padding:			3px 8px;
+	font-size:		12px;
+}
+
+.btn-block {
+	margin:			2px;
+}
+
+.btn-lg {
+	padding:			10px 15px;
+	font-size:		16px;
+}
+
+/* Alphabet permutation table - LARGER */
+#perm_table, #perm_table2 {
+	width:				100%;
+	text-align:		center;
+	font-size:			18px;
+	font-family:		'Courier New', monospace;
+	background:		#000000;
+	border-radius:	5px;
+	border:			2px solid #00ff00;
+	box-shadow:		0 0 20px rgba(0, 255, 0, 0.3);
+	margin-top:	10px;
+}
+
+#perm_table td, #perm_table2 td {
+	font-weight:		bold;
+	color:				#00ff00;
+	padding:			8px 4px;
+	min-width:		20px;
+	height:			20px;
+	font-size:		16px;
+	border:			1px solid #003300;
+}
+
+#perm_table tr:nth-child(even) td {
+	background-color:	rgba(0, 255, 0, 0.05);
+}
+
+#perm_table tr:nth-child(odd) td {
+	background-color:	rgba(0, 0, 0, 0.3);
+}
+
+#perm_table tr:hover td {
+	background-color:	rgba(0, 255, 0, 0.15);
+	cursor:			default;
+}
+
+/* Table highlighting */
+.sel-row, .sel-col {
+	font-family:	'Courier New', monospace;
+	font-weight:		bold;
+	color:				#000000;
+}
+
+.sel-col {
+	background-color:	#00ffaa !important;
+	color:				#000000 !important;
+	font-weight:		bold !important;
+}
+
+.sel-row {
+	background-color:	#00aa44 !important;
+	color:				#000000 !important;
+	font-weight:		bold !important;
+}
+
+.sel-cor {
+	font-size:			100%;
+	font-weight:		bolder;
+	background-color:	#ff0044 !important;
+	color:				#ffffff !important;
+	font-family:	'Courier New', monospace;
+}
+
+/* Label for subscripts */
+.sub {
+	font-size:			60%;
+	font-family:		'Courier New', monospace;
+	color:				#00aa00;
+	vertical-align:	super;
+}
+
+/* Button row styling */
+.btn-row {
+	display:			flex;
+	gap:				5px;
+}
+
+.btn-row .btn {
+	flex:			1;
+}
+
+/* Fix for algorithm output text wrapping */
+.algorithm-output br {
+	display:			none;
+}
+
+/* Remove bootstrap's default well styles */
+.well {
+	background-image:	none;
+	box-shadow:		none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+	body {
+		font-size:	12px;
+	}
+	
+	#perm_table td, #perm_table2 td {
+		font-size:	12px;
+		padding:	4px 2px;
+		min-width:	15px;
+		height:		15px;
+	}
+	
+	.algorithm-output {
+		font-size:	12px;
+		height:		100px;
+	}
 }

@@ -64,7 +64,7 @@ function wMsgBox( mainH, subH, msg ){
 	if( subH != null )
 		$("#algorithmOutput").append("<h3>" + subH + "</h3>");
 	if( msg != null )
-		$("#algorithmOutput").append(msg);
+		$("#algorithmOutput").append("<p>" + msg + "</p>");
 }
 
 //Sets highlighting of a whole row, whole column or specific cell in the table
